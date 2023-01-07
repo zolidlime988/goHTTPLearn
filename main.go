@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 )
@@ -14,7 +14,7 @@ func main() {
 			fmt.Printf("Error getting sukebei %s", err.Error())
 			os.Exit(1)
 		}
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			fmt.Printf("Error reading sukebei %s", err.Error())
 		}
